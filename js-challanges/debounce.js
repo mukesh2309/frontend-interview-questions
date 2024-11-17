@@ -5,23 +5,7 @@ let counter = document.getElementById("counter");
 let count = 0;
 let debounceCount = 0;
 
-let start = new Date().getTime();
-
-const throttle = (cb, delay = 100) => {
-  let isThrottle = true;
-  let timer;
-  return (...args) => {
-    if (isThrottle) {
-      isThrottle = false;
-      timer = setTimeout(() => {
-        cb(...args);
-        isThrottle = true;
-      }, delay);
-    }
-  };
-};
-
-const throttleFun = throttle((params) => {
+const debounceFun = throttle((params) => {
   let now = new Date().getTime();
   console.log(now - start);
   debounce.innerHTML = ++debounceCount;
@@ -29,5 +13,5 @@ const throttleFun = throttle((params) => {
 
 btn.addEventListener("click", () => {
   counter.innerHTML = ++count;
-  throttleFun("hi");
+  debounceFun("hi");
 });
