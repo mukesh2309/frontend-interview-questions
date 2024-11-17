@@ -1,5 +1,5 @@
 let btn = document.getElementById("btn");
-let debounce = document.getElementById("debounce");
+let throttleTag = document.getElementById("debounce");
 let counter = document.getElementById("counter");
 
 let count = 0;
@@ -24,7 +24,7 @@ const throttle = (cb, delay = 100) => {
 const throttleFun = throttle((params) => {
   let now = new Date().getTime();
   console.log(now - start);
-  debounce.innerHTML = ++debounceCount;
+  throttleTag.innerHTML = ++debounceCount;
 }, 800);
 
 btn.addEventListener("click", () => {
